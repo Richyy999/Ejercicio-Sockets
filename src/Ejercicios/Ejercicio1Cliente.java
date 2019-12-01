@@ -32,7 +32,7 @@ public class Ejercicio1Cliente {
 				System.out.println("Adiós");
 				break;
 			default:
-				System.out.println("Opción no válida");
+				System.out.println("Opción no válida.");
 				break;
 			}
 		} while (!opcion.equals("0"));
