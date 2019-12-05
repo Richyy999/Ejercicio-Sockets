@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintStream;
+import java.io.StringReader;
 import java.net.Socket;
 import java.util.List;
 import java.util.Scanner;
@@ -49,7 +50,12 @@ public class Ejercicio1Cliente {
 			ps.println(peticion);
 			String res = br.readLine();
 			if (res.startsWith("<")) {
-				System.out.println(parsear(isr));
+				String xml = "";
+				while (res != null) {
+					xml += res;
+					res = br.readLine();
+				}
+				System.out.println(parsear(new StringReader(xml)));
 			} else
 				System.out.println(res);
 		} catch (IOException e) {
@@ -57,10 +63,10 @@ public class Ejercicio1Cliente {
 		}
 	}
 
-	private static String parsear(InputStreamReader isr) {
+	private static String parsear(StringReader xml) {
 		SAXBuilder builder = new SAXBuilder();
 		try {
-			Document docum = builder.build(isr);
+			Document docum = builder.build(xml);
 			Element root = docum.getRootElement();
 			List<Element> datos = root.getChildren();
 			String hora = "";
