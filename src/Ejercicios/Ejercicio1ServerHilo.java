@@ -70,8 +70,9 @@ public class Ejercicio1ServerHilo implements Runnable {
 		docum.getRootElement().addContent(time);
 
 		XMLOutputter out = new XMLOutputter(Format.getPrettyFormat());
-		try {
-			out.output(docum, soque.getOutputStream());
+		String xml = out.outputString(docum);
+		try (PrintWriter pw = new PrintWriter(soque.getOutputStream());) {
+			pw.println(xml);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
