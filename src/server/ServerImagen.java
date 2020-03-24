@@ -1,4 +1,4 @@
-package Server;
+package server;
 
 import java.awt.FileDialog;
 import java.awt.Frame;

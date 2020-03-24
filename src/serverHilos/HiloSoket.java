@@ -1,4 +1,4 @@
-package ServerHilos;
+package serverHilos;
 
 import java.io.BufferedReader;
 import java.io.IOException;

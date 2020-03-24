@@ -1,19 +1,19 @@
-package ServerHilos;
+package ejercicio5Server;
 
+import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
 
-public class MainHilosSoket {
+public class MainServer {
 
 	public static void main(String[] args) {
 		try (ServerSocket sSoque = new ServerSocket(2019);) {
 			while (true) {
-				System.out.println("Servidor esperando peticiones por el puerto 2019");
-				// Esperando a que llegue una petición
+				System.out.println("Esperando peticiones...");
 				Socket soque = sSoque.accept();
-				new Thread(new HiloSoket(soque)).start();
+				new Thread(new HiloServer(soque)).start();
 			}
-		} catch (Exception e) {
+		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
