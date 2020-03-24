@@ -1,4 +1,4 @@
-package Cliente;
+package cliente;
 
 import java.awt.FileDialog;
 import java.awt.Frame;
